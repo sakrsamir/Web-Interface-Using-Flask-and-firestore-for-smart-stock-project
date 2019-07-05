@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <title> Smart Stock </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo-sm.png') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <!-- This for here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+
+    <!-- -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+
+
+
+<body>
+    <div class="body-overlay"></div>
+    <!-- Start Loading-Page -->
+    <div class="loader">
+        <div class="loading">
+            <img src="{{ url_for('static', filename='img/logo.png') }}">
+        </div>
+    </div>
+    <!-- End Loading-Page -->
+
+    <!--Start Navbar-->
+    <div class="navbar">
+        <div class="row">
+
+
+            <div class="col-md-2 col-sm-4 col-xs-3">
+                <div class="nav-left">
+                    <a href="#header" class="logo-nav"><img src="{{ url_for('static', filename='img/logo.png') }}"></a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-8 col-xs-9">
+                <div class="right-one">
+                    <div id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="navy">
+                        <ul class="nav cf" id="ul1">
+                            <li class="active"><a href="#header">Home</a></li>
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="experts.html">Experts</a></li>
+                            <li><a href="companies.html">Companies</a></li>
+                        </ul>
+
+                    </div>
+                  {% if 'username' in session %}
+                    <ul class="nav-right">
+                        <li>
+                            <a href="{{ url_for('login') }}">
+                                <span class="pdng">{{ (session['username'])[:4] }}</span>
+                                <i class="fas fa-power-off"></i>
+                            </a>
+                        </li>
+
+                        <li class="notifi badge-li" title="Notifications">
+                            <span class="badge">4</span>
+                            <a href="#">
+                                <i class="fas fa-bell"></i>
+                            </a>
+                            <ul class="notifi-ul">
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+{% endif %}
+
+
+      {% if 'username' not in session %}
+                    <ul class="nav-right">
+                        <li>
+                            <a href="{{ url_for('login') }}">
+                                <span class="pdng">Login</span>
+                                <i class="fas fa-power-off"></i>
+                            </a>
+                        </li>
+                      </ul>
+      {% endif %}
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!--End Navbar-->
+
+
+    <!-- Start Header -->
+    <section class="header" id="header">
+        <div class="in-content">
+            <h4>Welcome to</h4>
+            <div class="in-logo">
+                <img src="{{ url_for('static', filename='img/logo.png') }}">
+            </div>
+        </div>
+    </section>
+    <!-- End Header -->
+
+
+    <!-- Start brands -->
+    <section class="brands all-sections">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8 col-md-9 col-xs-12">
+                    <div class="images">
+                        <ul class="group">
+                            <li class="brand wow slideInDown">
+                                <img src="{{ url_for('static', filename='img/apple.png') }}">
+                                <p>Apple</p>
+                            </li>
+                            <li class="brand wow slideInDown">
+                                <img src="{{ url_for('static', filename='img/insta.png') }}">
+                                <p>Instagram</p>
+                            </li>
+                            <li class="brand wow slideInDown">
+                                <img src="{{ url_for('static', filename='img/bitcoin.png') }}">
+                                <p>Bitcoin</p>
+                            </li>
+                        </ul>
+                        <ul class="group">
+                            <li class="brand">
+                                <img src="{{ url_for('static', filename='img/pinterest.png') }}">
+                                <p>Pinterest</p>
+                            </li>
+                            <li class="brand">
+                                <img src="{{ url_for('static', filename='img/nvda.png') }}">
+                                <p>Nvda</p>
+                            </li>
+                            <li class="brand">
+                                <img src="{{ url_for('static', filename='img/facebook.png') }}">
+                                <p>Facebook</p>
+                            </li>
+                        </ul>
+                        <ul class="group">
+                            <li class="brand wow slideInUp">
+                                <img src="{{ url_for('static', filename='img/amazon.png') }}">
+                                <p>Amazon</p>
+                            </li>
+                            <li class="brand wow slideInUp">
+                                <img src="{{ url_for('static', filename='img/twitter.png') }}">
+                                <p>Twitter</p>
+                            </li>
+                            <li class="brand wow slideInUp">
+                                <img src="{{ url_for('static', filename='img/micro.png') }}">
+                                <p>Microsoft</p>
+                            </li>
+                        </ul>
+                        <ul class="group">
+                            <li class="brand wow slideInDown">
+                                <img src="{{ url_for('static', filename='img/youtube.png') }}">
+                                <p>Youtube</p>
+                            </li>
+                            <li class="brand wow slideInDown">
+                                <img src="{{ url_for('static', filename='img/nike.png') }}">
+                                <p>Nike</p>
+                            </li>
+                            <li class="brand wow slideInDown">
+                                <img src="{{ url_for('static', filename='img/google.png') }}">
+                                <p>Google</p>
+                            </li>
+                        </ul>
+                        <ul class="group">
+                            <li class="brand wow slideInUp">
+                                <img src="{{ url_for('static', filename='img/netflex.png') }}">
+                                <p>Netflix</p>
+                            </li>
+                            <li class="brand wow slideInUp">
+                                <img src="{{ url_for('static', filename='img/snap.png') }}">
+                                <p>Snapchat</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-3 col-xs-12">
+                    <div class="discription">
+                        <h4>Put yout money to work right away</h4>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                        {% if 'username' not in session %}
+                        <a href="{{ url_for('signup') }}" class="square-an white button-form center-one">Sign Up</a>
+                        {% endif %}
+                        <a href="companies.html" class="to-cmp">Browse the stocks we offer</a>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- End brands -->
+
+    <!-- Start Companies -->
+    <section class="companies all-sections">
+        <div class="container">
+            <h3 class="h2-after">Watchlist trending tech</h3>
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="company">
+                        <div class="top-cmp">
+                            <div class="left">
+                                <img src="img/facebook.png">
+                                <h4>Facebook</h4>
+                                <p>Lorem ipsum</p>
+                            </div>
+                            <span class="right">
+                                <span class="join">
+                                    <!--        <i class="fas fa-plus"></i>-->
+                                    <input type="checkbox" class="playpause-chk-icon" id="chkbx1">
+                                    <label for="chkbx1"></label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="btm-cmp">
+                            <div class="left">
+                                <h1>4,85545.54</h1>
+                            </div>
+                            <span class="right">
+                                <span class="low">-54.51</span>
+                                <span class="low">-11%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="company">
+                        <div class="top-cmp">
+                            <div class="left">
+                                <img src="img/apple.png">
+                                <h4>apple</h4>
+                                <p>Lorem ipsum</p>
+                            </div>
+                            <span class="right">
+                                <span class="join">
+                                    <!--        <i class="fas fa-plus"></i>-->
+                                    <input type="checkbox" class="playpause-chk-icon" id="chkbx2">
+                                    <label for="chkbx2"></label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="btm-cmp">
+                            <div class="left">
+                                <h1>4,85545.54</h1>
+                            </div>
+                            <span class="right">
+                                <span class="low">-54.51</span>
+                                <span class="low">-11%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="company">
+                        <div class="top-cmp">
+                            <div class="left">
+                                <img src="img/amazon.png">
+                                <h4>amazon</h4>
+                                <p>Lorem ipsum</p>
+                            </div>
+                            <span class="right">
+                                <span class="join">
+                                    <!--        <i class="fas fa-plus"></i>-->
+                                    <input type="checkbox" class="playpause-chk-icon" id="chkbx3">
+                                    <label for="chkbx3"></label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="btm-cmp">
+                            <div class="left">
+                                <h1>4,85545.54</h1>
+                            </div>
+                            <span class="right">
+                                <span class="low">-54.51</span>
+                                <span class="low">-11%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="company">
+                        <div class="top-cmp">
+                            <div class="left">
+                                <img src="img/nvda.png">
+                                <h4>nvda</h4>
+                                <p>Lorem ipsum</p>
+                            </div>
+                            <span class="right">
+                                <span class="join">
+                                    <!--        <i class="fas fa-plus"></i>-->
+                                    <input type="checkbox" class="playpause-chk-icon" id="chkbx4">
+                                    <label for="chkbx4"></label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="btm-cmp">
+                            <div class="left">
+                                <h1>4,85545.54</h1>
+                            </div>
+                            <span class="right">
+                                <span class="low">-54.51</span>
+                                <span class="low">-11%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="company">
+                        <div class="top-cmp">
+                            <div class="left">
+                                <img src="img/nike.png">
+                                <h4>nike</h4>
+                                <p>Lorem ipsum</p>
+                            </div>
+                            <span class="right">
+                                <span class="join">
+                                    <!--        <i class="fas fa-plus"></i>-->
+                                    <input type="checkbox" class="playpause-chk-icon" id="chkbx5">
+                                    <label for="chkbx5"></label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="btm-cmp">
+                            <div class="left">
+                                <h1>4,85545.54</h1>
+                            </div>
+                            <span class="right">
+                                <span class="low">-54.51</span>
+                                <span class="low">-11%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="company">
+                        <div class="top-cmp">
+                            <div class="left">
+                                <img src="img/netflex.png">
+                                <h4>netflix</h4>
+                                <p>Lorem ipsum</p>
+                            </div>
+                            <span class="right">
+                                <span class="join">
+                                    <!--        <i class="fas fa-plus"></i>-->
+                                    <input type="checkbox" class="playpause-chk-icon" id="chkbx6">
+                                    <label for="chkbx6"></label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="btm-cmp">
+                            <div class="left">
+                                <h1>4,85545.54</h1>
+                            </div>
+                            <span class="right">
+                                <span class="low">-54.51</span>
+                                <span class="low">-11%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="company">
+                        <div class="top-cmp">
+                            <div class="left">
+                                <img src="img/nvda.png">
+                                <h4>nvda</h4>
+                                <p>Lorem ipsum</p>
+                            </div>
+                            <span class="right">
+                                <span class="join">
+                                    <!--        <i class="fas fa-plus"></i>-->
+                                    <input type="checkbox" class="playpause-chk-icon" id="chkbx7">
+                                    <label for="chkbx7"></label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="btm-cmp">
+                            <div class="left">
+                                <h1>4,85545.54</h1>
+                            </div>
+                            <span class="right">
+                                <span class="low">-54.51</span>
+                                <span class="low">-11%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="company">
+                        <div class="top-cmp">
+                            <div class="left">
+                                <img src="img/pinterest.png">
+                                <h4>pinterest</h4>
+                                <p>Lorem ipsum</p>
+                            </div>
+                            <span class="right">
+                                <span class="join">
+                                    <!--        <i class="fas fa-plus"></i>-->
+                                    <input type="checkbox" class="playpause-chk-icon" id="chkbx8">
+                                    <label for="chkbx8"></label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="btm-cmp">
+                            <div class="left">
+                                <h1>4,85545.54</h1>
+                            </div>
+                            <span class="right">
+                                <span class="low">-54.51</span>
+                                <span class="low">-11%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="company">
+                        <div class="top-cmp">
+                            <div class="left">
+                                <img src="img/bitcoin.png">
+                                <h4>bitcoin</h4>
+                                <p>Lorem ipsum</p>
+                            </div>
+                            <span class="right">
+                                <span class="join">
+                                    <!--        <i class="fas fa-plus"></i>-->
+                                    <input type="checkbox" class="playpause-chk-icon" id="chkbx9">
+                                    <label for="chkbx9"></label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="btm-cmp">
+                            <div class="left">
+                                <h1>4,85545.54</h1>
+                            </div>
+                            <span class="right">
+                                <span class="low">-54.51</span>
+                                <span class="low">-11%</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="companies.html" class="see-more">watch more ...</a>
+
+        </div>
+    </section>
+    <!-- End Companies -->
+
+    <!-- Start experts -->
+    <section class="experts all-sections">
+        <div class="container">
+            <h3 class="h2-after">meet our experts</h3>
+
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="expert">
+                        <div class="ex-img">
+                            <img src="{{ experts_info[0]['e_img'] }}">
+                        </div>
+                        <h4 class="name">{{ experts_info[0]['e_name'] }}</h4>
+                        <div class="stars">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                            </ul>
+                            <span class="rate">4.5 (58)</span>
+                        </div>
+                        <p>Followers : <span class="flwr">21</span> </p>
+                        <span class="follow">
+                            <!--        <i class="fas fa-plus"></i>-->
+                            <input type="checkbox" class="playpause-chk-icon" id="chkbx10">
+                            <label for="chkbx10"></label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="expert">
+                        <div class="ex-img">
+                            <img src="{{ experts_info[1]['e_img'] }}">
+                        </div>
+                        <h4 class="name">{{ experts_info[1]['e_name'] }}</h4>
+                        <div class="stars">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                            </ul>
+                            <span class="rate">4.2 (32)</span>
+                        </div>
+                        <p>Followers : <span class="flwr">11</span> </p>
+                        <span class="follow">
+                            <!--        <i class="fas fa-plus"></i>-->
+                            <input type="checkbox" class="playpause-chk-icon" id="chkbx11">
+                            <label for="chkbx11"></label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="expert">
+                        <div class="ex-img">
+                            <img src="{{ experts_info[2]['e_img'] }}">
+                        </div>
+                        <h4 class="name">{{ experts_info[2]['e_name'] }}</h4>
+                        <div class="stars">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                            </ul>
+                            <span class="rate">4.9 (68)</span>
+                        </div>
+                        <p>Followers : <span class="flwr">321</span> </p>
+                        <span class="follow">
+                            <!--        <i class="fas fa-plus"></i>-->
+                            <input type="checkbox" class="playpause-chk-icon" id="chkbx12">
+                            <label for="chkbx12"></label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="expert">
+                        <div class="ex-img">
+                            <img src="{{ experts_info[3]['e_img'] }}">
+                        </div>
+                        <h4 class="name">{{ experts_info[3]['e_name'] }}</h4>
+                        <div class="stars">
+                            <ul>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star"></i></li>
+                                <li><i class="fas fa-star-half-alt"></i></li>
+                            </ul>
+                            <span class="rate">4.1 (23)</span>
+                        </div>
+                        <p>Followers : <span class="flwr">31</span> </p>
+                        <span class="follow">
+                            <!--        <i class="fas fa-plus"></i>-->
+                            <input type="checkbox" class="playpause-chk-icon" id="chkbx13">
+                            <label for="chkbx13"></label>
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <a href="{{ url_for('showExpert') }}" class="see-more">watch more ...</a>
+
+        </div>
+    </section>
+    <!-- End experts -->
+
+    
+    
+<!-- Start Timeline -->
+    <section class="timeline all-sections">
+        <div class="container">
+            <h3 class="h2-after">Posts</h3>
+            <div class="row">
+
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <div class="posts">
+                {% for post in posts_info %}
+                        <div class="post1">
+                            <div class="top-cmp">
+                                <div class="left">
+                                    <div class="ex-img">
+                                        <img src="{{ post['p_img'] }}">
+                                    </div>
+                                    <h4 class="name">{{ post['p_name'] }}</h4>
+                                </div>
+                                <span class="right">
+                                    <span class="follow">
+                                        <input type="checkbox" class="playpause-chk-icon" id="chkbx14">
+                                        <label for="chkbx14"></label>
+                                    </span>
+                                    
+                                    <div class="time">
+                                        {{ post['p_time'] }}
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="btm-comp">
+                                {{ post['p_content'] }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!---------------- NEWS ---------->
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="news">
+                        <h4 class="title1">news</h4>
+                        
+                        <div class="news1">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
+                            </p>
+                            <div class="time">
+                                5:35 pm , 14 jul
+                            </div>
+                        </div>
+                        
+                        <div class="news1">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the  
+                            </p>
+                            <div class="time">
+                                5:35 pm , 14 jul
+                            </div>
+                        </div>
+                        
+                        <div class="news1">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
+                            </p>
+                            <div class="time">
+                                5:35 pm , 14 jul
+                            </div>
+                        </div>
+                        
+                        <div class="news1">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the  
+                            </p>
+                            <div class="time">
+                                5:35 pm , 14 jul
+                            </div>
+                        </div>
+                        
+                        <div class="news1">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
+                            </p>
+                            <div class="time">
+                                5:35 pm , 14 jul
+                            </div>
+                        </div>
+                        
+                        <div class="news1">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the  
+                            </p>
+                            <div class="time">
+                                5:35 pm , 14 jul
+                            </div>
+                        </div>
+                        
+                        <div class="news1">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
+                            </p>
+                            <div class="time">
+                                5:35 pm , 14 jul
+                            </div>
+                        </div>
+                        
+                        <div class="news1">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the  
+                            </p>
+                            <div class="time">
+                                5:35 pm , 14 jul
+                            </div>
+                        </div>
+                        
+                        <div class="news1">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and 
+                            </p>
+                            <div class="time">
+                                5:35 pm , 14 jul
+                            </div>
+                        </div>
+                        
+                        <div class="news1">
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the  
+                            </p>
+                            <div class="time">
+                                5:35 pm , 14 jul
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+<!-- End Timeline -->
+
+    <!-- Start Footer -->
+    <section class="footer">
+        <div class="container">
+            <div class="footer-content">
+
+
+                <div class="row">
+
+                    <div class="col-xs-6">
+                        <div class="foot1">
+                            <b>smart stock</b>
+                            <p>
+                                &copy;  2019 Smart Stock
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="foot1">
+                            <ul class="links">
+                                <li><a href="terms.html">Privacy & Cookies</a></li>
+                                <li><a href="help.html">Terms of use</a></li>
+                                <li><a href="privacy.html">About us</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- End Footer -->
+
+
+
+
+    <!--Scroll Button-->
+    <div id="scroll-top">
+        <i class="fa fa-angle-up"></i>
+    </div>
+
+
+
+    <!-- Strat End -->
+    <!--===============================
+         SCRIPT
+         ===================================-->
+
+    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <script>
+        new WOW().init();
+
+    </script>
+   
+    <!-- -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+</body>
+
+</html>

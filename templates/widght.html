@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>real time</title>
+  
+</head>
+<body>
+{%for com in companies_info%}
+<p>{{com['com_id']}}
+	<p>{{com['com_name']}}
+{% for i in share_values %}
+{%if i['com_id']==com['com_id']  %}
+  <p>{{i['com_id']}}</p>  
+{%endif%}
+
+{%endfor%}
+{%endfor%}
+</body>
+</html>

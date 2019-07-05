@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <title> Smart Stock - Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo-sm.png') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <!-- This for here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+
+    <!-- -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+
+
+
+<body>
+    <div class="body-overlay"></div>
+    <!-- Start Loading-Page -->
+    <div class="loader">
+        <div class="loading">
+            <img src="{{ url_for('static', filename='img/logo.png') }}">
+        </div>
+    </div>
+    <!-- End Loading-Page -->
+
+
+
+    <!--Start Navbar-->
+    <div class="navbar">
+        <div class="row">
+
+
+            <div class="col-md-2 col-sm-4 col-xs-3">
+                <div class="nav-left">
+                    <a href="{{ url_for('home') }}" class="logo-nav"><img src="{{ url_for('static', filename='img/logo.png') }}"></a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-8 col-xs-9">
+                <div class="right-one">
+                    <div id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="navy">
+                        <ul class="nav cf" id="ul1">
+                            <li><a href="{{ url_for('home') }}">Home</a></li>
+                            <li class="active"><a href="#section1">Profile</a></li>
+                            <li><a href="{{ url_for('showExpert') }}">Experts</a></li>
+                            <li><a href="{{ url_for('showComanies') }}">Companies</a></li>
+                        </ul>
+
+                    </div>
+
+                    <ul class="nav-right">
+                        <li>
+                            <a href="{{ url_for('login') }}">
+                                <span class="pdng">Logout</span>
+                                <i class="fas fa-power-off"></i>
+                            </a>
+                        </li>
+
+                        <li class="notifi badge-li" title="Notifications">
+                            <span class="badge">4</span>
+                            <a href="#">
+                                <i class="fas fa-bell"></i>
+                            </a>
+                            <ul class="notifi-ul">
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-up"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-up"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-up"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-up"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!--End Navbar-->
+
+<!-- Start Profile -->
+    <div class="profile">
+        <div class="container">
+                    <div class="in-content">
+                        <div class="form form-login">
+                            {%for i in user_info %}
+                            <div class="col-xs-12 no-padding">
+                                    <div class="profile-pic text-center">
+                                        <img src="{{ url_for('static', filename='img/1.png') }}">
+                                    </div>
+                                <h3>{{i['user_name']}}</h3>
+                                </div>
+                            
+                            
+                            <div class="col-xs-12 no-padding">
+                                <div class="form-group">
+                                    <label>E-mail</label>
+                                    <input readonly type="email" class="form-control" value="{{i['user_mail']}}">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 no-padding">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input readonly type="password" class="form-control" id="password-field" value="{{i['user_pass']}}">
+                                </div>
+                            </div>
+                          {%endfor%}
+                            <div class="col-xs-12 no-padding">
+                                <a href="profile-edit.html" class="square-an white button-form">Edit Your Profile</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+    </div>
+<!-- End Profile -->
+
+    <!--Scroll Button-->
+    <div id="scroll-top">
+        <i class="fa fa-angle-up"></i>
+    </div>
+
+
+
+    <!-- Strat End -->
+    <!--===============================
+         SCRIPT
+         ===================================-->
+
+    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <script>
+        new WOW().init();
+
+    </script>
+ 
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+</body>
+
+</html>

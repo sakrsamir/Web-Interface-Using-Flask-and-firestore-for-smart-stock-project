@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <title> Smart Stock - Sign In </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo-sm.png') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+
+<body>
+    
+
+                    
+
+    <!-- Start Loading-Page -->
+    <div class="loader">
+        <div class="loading">
+            <img src="{{ url_for('static', filename='img/logo.png') }}">
+        </div>
+    </div>
+    <!-- End Loading-Page -->
+
+    <div class="bg-vh">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-5 col-xs-12 no-padding">
+                <div class="back-logo">
+                    <div class="in-content">
+                        <h4>Welcome to</h4>
+                        <div class="in-logo">
+                            <img src="{{ url_for('static', filename='img/logo.png') }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-7 col-xs-12 no-padding">
+                <div class=" log-in ">
+                    <div class="in-content">
+                        <!-- flash messages -->
+
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+    
+                                {% for message in messages %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{message}}
+                                    </div>  
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+
+
+                    <!-- end of flash meaasges -->
+
+                        <h4>Smart Stock - Log In </h4>
+                        <form class="form form-login" action="{{url_for('login')}}" method = "post" enctype="multipart/form-data">
+                            <div class="col-xs-12 no-padding">
+                                <div class="form-group">
+                                    <label>E-mail</label>
+                                    <input type="email" class="form-control" placeholder="Type your e-mail" name="mail">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 no-padding">
+                                <div class="form-group eye-relative">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" id="password-field" placeholder="Type your password" name="pass">
+                                    <i toggle="#password-field" class="fas fa-eye eye-abslute toggle-password"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xs-12 no-padding">
+                            <ul class="checkbox-list">
+                                <li>
+                                    <input type="checkbox" id="test1" name="mode" value="expert">
+                                    <label for="test1">
+                                        <span class=" span-margin-right">
+                                            log in as Expert 
+                                        </span>
+                                    </label>
+                                </li>
+                            </ul>
+                                <a class="line-a" href="forget-password.html">Forgetten password ?</a>
+                            </div>
+
+
+                            <div class="col-xs-12 no-padding">
+                                <button type="submit" class="square-an white button-form">Log In</button>
+                            <p class=" dont-acount"><span> Don't have an account? </span><a href="{{ url_for('signup') }}"> Sign Up </a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Strat End -->
+    <!--===============================
+         SCRIPT
+         ===================================-->
+    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <script>
+        new WOW().init();
+
+    </script>
+    <!--  special for this page -->
+    <script>
+        $(".toggle-password").click(function() {
+
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+
+    </script>
+    <!-- end special for this page -->
+    <!-- -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

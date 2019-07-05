@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <title> Smart Stock - Company</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo-sm.png') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <!-- This for here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+
+    <!-- -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+
+
+
+<body>
+    <div class="body-overlay"></div>
+    <!-- Start Loading-Page -->
+    <div class="loader">
+        <div class="loading">
+            <img src="{{ url_for('static', filename='img/logo.png') }}">
+        </div>
+    </div>
+    <!-- End Loading-Page -->
+
+
+
+    <!--Start Navbar-->
+    <div class="navbar">
+        <div class="row">
+
+
+            <div class="col-md-2 col-sm-4 col-xs-3">
+                <div class="nav-left">
+                    <a href="{{ url_for('home') }}" class="logo-nav"><img src="{{ url_for('static', filename='img/logo.png') }}"></a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-8 col-xs-9">
+                <div class="right-one">
+                    <div id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="navy">
+                        <ul class="nav cf" id="ul1">
+                            <li><a href="{{ url_for('home') }}">Home</a></li>
+                            {% if 'mail'  in session %}
+                            <li><a href="{{ url_for('Profile') }}">Profile</a></li>
+                            {% endif %}
+                            <li><a href="{{ url_for('showExpert') }}">Experts</a></li>
+                            <li><a href="{{ url_for('showComanies') }}">Companies</a></li>
+                        </ul>
+
+                    </div>
+
+                    {% if 'mail' in session %}
+                    <ul class="nav-right">
+                        <li>
+                            <a href="{{ url_for('login') }}">
+                                <span class="pdng">{{ (session['mail'])[:4] }}</span>
+                                <i class="fas fa-power-off"></i>
+                            </a>
+                        </li>
+
+                        <li class="notifi badge-li" title="Notifications">
+                            <span class="badge">4</span>
+                            <a href="#">
+                                <i class="fas fa-bell"></i>
+                            </a>
+                            <ul class="notifi-ul">
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+{% endif %}
+{% if 'mail' not in session %}
+                    <ul class="nav-right">
+                        <li>
+                            <a href="{{ url_for('login') }}">
+                                <span class="pdng">Login</span>
+                                <i class="fas fa-power-off"></i>
+                            </a>
+                        </li>
+                      </ul>
+      {% endif %}
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!--End Navbar-->
+
+
+    <!-- Start bread-crumbs -->
+    <section class="crumbs exp-pro">
+        <div class="in-content">
+            <h4>Company</h4>
+        </div>
+    </section>
+    <!-- End bread-crumbs -->
+
+    <!-- Start experts -->
+    <section class="experts all-sections compn" id="section1">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-xs-12">
+                    <div class="company camp-in">
+                        <div class="top-cmp">
+                            <div class="left">
+                                <img src="{{com_img}}">
+                                <h4>{{com_name}}</h4>
+                                <p>{{com_stock_name}}</p>
+                            </div>
+                            <span class="right">
+                                <a href="{{url_for('simulate',stockname=com_stock_name)}}" class="btn btn-danger" >Simulate</a>
+                            </span>
+                        </div>
+                        <div class="btm-cmp">
+                            <div class="left">
+                                <h1>{{share}}</h1>
+
+                                <span class="low">{{rate}} , {{ratio }}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9 col-xs-12">
+                    <div class="arts">
+                        <div id="trend" style="height:450px;border:1px solid #ccc;padding:10px;"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-xs-12">
+                    <ul class="status">
+                        <li>
+                            <span class="sat closed">Open : </span>
+                            <span class="sat opened">161.929993</span>
+                        </li>
+                        <li>
+                            <span class="sat closed">Close : </span>
+                            <span class="sat opened">162.240005</span>
+                        </li>
+                        <li>
+                            <span class="sat closed">High : </span>
+                            <span class="sat opened">159.589996</span>
+                        </li>
+                        <li>
+                            <span class="sat closed">Low : </span>
+                            <span class="sat opened">161.889999</span>
+                        </li>
+                        <li>
+                            <span class="sat closed">Adj Close : </span>
+                            <span class="sat opened">160.039993</span>
+                        </li>
+                        <li>
+                            <span class="sat closed">Volume : </span>
+                            <span class="sat opened">15849200</span>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <div class="width-80">
+                    <div class="col-xs-12">
+                        <form class="radios" action="{{url_for('get_company_by_name',company=com_stock_name)}}" method = "post" enctype="multipart/form-data">
+                            <img src="{{com_img}}"> is going
+                            <div class="control-container">
+                                <div class="interruptor interr-green">
+                                    <input class="check" type="radio" name="switch" value="up">
+                                    <div class="button">
+                                        <div class="face-1">Up</div>
+                                        <div class="face-2"></div>
+                                        <div class="face-3"></div>
+                                    </div>
+                                </div>
+                                <div class="interruptor interr-green">
+                                    <input class="check" type="radio" name="switch" value="down">
+                                    <div class="button">
+                                        <div class="face-1">Down</div>
+                                        <div class="face-2"></div>
+                                        <div class="face-3"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            this
+
+                            <div class="control-container">
+                                <div class="interruptor interr-green">
+                                    <input class="check" type="radio" name="switch2">
+                                    <div class="button">
+                                        <div class="face-1">Day</div>
+                                        <div class="face-2"></div>
+                                        <div class="face-3"></div>
+                                    </div>
+                                </div>
+                                <div class="interruptor interr-green">
+                                    <input class="check" type="radio" name="switch2">
+                                    <div class="button">
+                                        <div class="face-1">Week</div>
+                                        <div class="face-2"></div>
+                                        <div class="face-3"></div>
+                                    </div>
+                                </div>
+                                <div class="interruptor interr-green">
+                                    <input class="check" type="radio" name="switch2">
+                                    <div class="button">
+                                        <div class="face-1">Month</div>
+                                        <div class="face-2"></div>
+                                        <div class="face-3"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit">Submit</button>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="width-80">
+                    <div class="col-sm-6 col-xs-12">
+                        <div class="predc">
+                            <div class="center-in">
+                                <h3>System Prediction</h3>
+                                {%if trend == True%}
+                                <p class="pred-p up">UP</p>
+                                {%endif%}
+                                <!----------- For Down -------->
+                                {%if trend == False%}  
+                                <p class="pred-p down">Down</p>
+                                {%endif%}
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xs-12">
+                        <div class="predc">
+                            <div class="center-in">
+                                <h3>Expert Prediction</h3>
+
+                                <div class="card">
+
+
+                                    <!-- Canvas for Chart.js -->
+                                    <canvas id="canvas" height="200"></canvas>
+
+                                    <!-- Custom tooltip canvas -->
+                                    <canvas id="tooltip-canvas" width="150" height="100"></canvas>
+
+                                    <!-- Reload button -->
+                                    <button type="button" id="reload" class="btn-reload">
+                                        <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71.4 61.2">
+                                            <style>
+                                                .st0 {
+                                                    fill: #AAAAAA;
+                                                }
+
+                                            </style>
+                                            <title>59 all</title>
+                                            <path class="st0" d="M57.6 0h8.7c2.8 0 5 2.2 5 5v51.1c0 2.8-2.2 5-5 5h-8.7c-2.8 0-5-2.2-5-5V5c0-2.7 2.2-5 5-5zM5 24.9h8.7c2.8 0 5 2.2 5 5v26.2c0 2.8-2.2 5-5 5H5c-2.8 0-5-2.2-5-5V29.9c0-2.8 2.2-5 5-5zM31.4 17.8h8.7c2.8 0 5 2.2 5 5v33.4c0 2.8-2.2 5-5 5h-8.7c-2.8 0-5-2.2-5-5V22.8c0-2.8 2.3-5 5-5z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-7 col-sm-6 col-xs-12">
+                    <div class="news">
+                        <h4 class="title1">Sentiment Analysis</h4>
+                        {%for n in news_info%}
+                        <div class="news1">
+                            <div class="n-left">
+                                <p>
+                                    {{n['n_text']}}
+                                </p>
+                                <span class="channel">cnn</span>
+                            </div>
+                            <div class="n-right">
+                                {%if n['n_trend']==True%}
+                                <span class="ch pos">Positive</span>
+                                {%endif%}
+                                {%if n['n_trend']==False%}
+                                <span class="ch neg">Negative</span>
+                                {%endif%}
+                                <div class="time">
+                                    {{n['n_sub']}} , {{n['n_trend']}}
+                                </div>
+                            </div>
+                        </div>
+{%endfor%}
+                        
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="col-md-5 col-sm-6 col-xs-12">
+                    <div class="assets">
+                        <h3>Trend >>> Companies</h3>
+
+                        <ul>
+                            <li>
+                                <p>
+                                    <img src="{{ url_for('static', filename='img/amazon.png') }}"> Amazon
+                                </p>
+                                <span>1,893.63 USD</span>
+                            </li>
+                            <li>
+                                <p>
+                                    <img src="{{ url_for('static', filename='img/pinterest.png') }}"> pinterest
+                                </p>
+                                <span>27.22 USD</span>
+                            </li>
+                            <li>
+                                <p>
+                                    <img src="{{ url_for('static', filename='img/twitter.png') }}"> twitter
+                                </p>
+                                <span>34.90 USD</span>
+                            </li>
+                            <li>
+                                <p>
+                                    <img src="{{ url_for('static', filename='img/facebook.png') }}"> facebook
+                                </p>
+                                <span>193.00 USD</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </section>
+    <!-- End experts -->
+
+
+    <!-- Start Footer -->
+    <section class="footer">
+        <div class="container">
+            <div class="footer-content">
+
+
+                <div class="row">
+
+                    <div class="col-xs-6">
+                        <div class="foot1">
+                            <b>smart stock</b>
+                            <p>
+                                &copy; 2019 Smart Stock
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="foot1">
+                            <ul class="links">
+                                <li><a href="terms.html">Privacy & Cookies</a></li>
+                                <li><a href="help.html">Terms of use</a></li>
+                                <li><a href="privacy.html">About us</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- End Footer -->
+
+
+
+
+    <!--Scroll Button-->
+    <div id="scroll-top">
+        <i class="fa fa-angle-up"></i>
+    </div>
+
+
+
+    <!-- Strat End -->
+    <!--===============================
+         SCRIPT
+         ===================================-->
+
+    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <script>
+        new WOW().init();
+
+    </script>
+
+    <!-- This special for here only -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.min.js"></script>
+    <script>
+        var myChart = echarts.init(document.getElementById('trend'));
+
+        option = {
+
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#6a7985'
+                    }
+                }
+            },
+            legend: {
+                //data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+                data: ['1D', '1W', '1M', '1Y', 'ALL']
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                //data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                //data : ['周一','周二','周三','周四','周五','周六','周日']
+                data: ['Jan', 'Fab', 'March', 'April', 'May', 'Jun', 'Jul', 'Agust', 'Sept', 'OCT', 'Nov', 'Dec']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            //series: [{
+            //    data: [820, 932, 901, 934, 1290, 1330, 1320],
+            //    type: 'line',
+            //    smooth: true
+            //}]
+            series: [{
+                    name: '1D',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: {},
+                    data: [120, 132, 101, 134, 90, 230, 210, 220, 182, 191, 234, 290, 330]
+                },
+                {
+                    name: '1W',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: {},
+                    data: [220, 182, 191, 234, 290, 330, 310, 220, 182, 191, 234, 290, 330]
+                },
+                {
+                    name: '1M',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: {},
+                    data: [150, 232, 201, 154, 190, 330, 410, 320, 180, 96, 200, 170, 300]
+                },
+                {
+                    name: '1Y',
+                    type: 'line',
+                    stack: 'Total',
+                    areaStyle: {
+                        normal: {}
+                    },
+                    data: [320, 332, 301, 334, 390, 330, 320.200, 250, 150, 400, 650, 850]
+                },
+                {
+                    name: 'ALL',
+                    type: 'line',
+                    stack: 'Total',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top'
+                        }
+                    },
+                    areaStyle: {
+                        normal: {}
+                    },
+                    data: [820, 932, 901, 934, 1290, 1330, 1320, 700, 650, 1000, 1500, 2000]
+                }
+            ]
+        };
+
+        myChart.setOption(option);
+
+    </script>
+
+    <!------------------------------------------------------------>
+
+    <!---------------  Smooth doughnut  ---------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var tooltipCanvas = document.getElementById("tooltip-canvas");
+
+        var gradientBlue = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
+        gradientBlue.addColorStop(0, '#5555FF');
+        gradientBlue.addColorStop(1, '#9787FF');
+
+        var gradientRed = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
+        gradientRed.addColorStop(0, '#FF55B8');
+        gradientRed.addColorStop(1, '#FF8787');
+
+        var gradientGrey = canvas.getContext('2d').createLinearGradient(0, 0, 0, 150);
+        gradientGrey.addColorStop(0, '#888888');
+        gradientGrey.addColorStop(1, '#AAAAAA');
+
+        window.arcSpacing = 0.15;
+        window.segmentHovered = false;
+
+        function textInCenter(value, label) {
+            var ctx = tooltipCanvas.getContext('2d');
+            ctx.clearRect(0, 0, tooltipCanvas.width, tooltipCanvas.height)
+
+            ctx.restore();
+
+            // Draw value
+            ctx.fillStyle = '#333333';
+            ctx.font = '24px sans-serif';
+            ctx.textBaseline = 'middle';
+
+            // Define text position
+            var textPosition = {
+                x: Math.round((tooltipCanvas.width - ctx.measureText(value).width) / 2),
+                y: tooltipCanvas.height / 2,
+            };
+
+            ctx.fillText(value, textPosition.x, textPosition.y);
+
+            // Draw label
+            ctx.fillStyle = '#AAAAAA';
+            ctx.font = '8px sans-serif';
+
+            // Define text position
+            var labelTextPosition = {
+                x: Math.round((tooltipCanvas.width - ctx.measureText(label).width) / 2),
+                y: tooltipCanvas.height / 2,
+            };
+
+            ctx.fillText(label, labelTextPosition.x, labelTextPosition.y - 20);
+            ctx.save();
+        }
+
+        Chart.elements.Arc.prototype.draw = function() {
+            var ctx = this._chart.ctx;
+            var vm = this._view;
+            var sA = vm.startAngle;
+            var eA = vm.endAngle;
+
+            ctx.beginPath();
+            ctx.arc(vm.x, vm.y, vm.outerRadius, sA + window.arcSpacing, eA - window.arcSpacing);
+            ctx.strokeStyle = vm.backgroundColor;
+            ctx.lineWidth = vm.borderWidth;
+            ctx.lineCap = 'round';
+            ctx.stroke();
+            ctx.closePath();
+        };
+
+        var config = {
+            type: 'doughnut',
+            data: {
+                labels: ['Negative', 'Neutral', 'Positive'],
+                datasets: [{
+                    data: [2, 1, 3],
+                    backgroundColor: [
+                        gradientRed,
+                        gradientGrey,
+                        gradientBlue,
+                    ],
+                }]
+            },
+            options: {
+                cutoutPercentage: 80,
+                elements: {
+                    arc: {
+                        borderWidth: 12,
+                    },
+                },
+                legend: {
+                    display: false,
+                },
+                animation: {
+                    onComplete: function(animation) {
+                        if (!window.segmentHovered) {
+                            var value = this.config.data.datasets[0].data.reduce(function(a, b) {
+                                return a + b;
+                            }, 0);
+                            var label = 'T O T A L';
+
+                            textInCenter(value, label);
+                        }
+                    },
+                },
+                tooltips: {
+                    enabled: false,
+                    custom: function(tooltip) {
+                        if (tooltip.body) {
+                            var line = tooltip.body[0].lines[0],
+                                parts = line.split(': ');
+                            textInCenter(parts[1], parts[0].split('').join(' ').toUpperCase());
+                            window.segmentHovered = true;
+                        } else {
+                            window.segmentHovered = false;
+                        }
+                    },
+                },
+            },
+        };
+
+        window.chart = new Chart(canvas, config);
+
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.push(data);
+            });
+            chart.update();
+        }
+
+        document.getElementById('reload').addEventListener('click', function() {
+            addData(window.chart, 'TEST', 300);
+        });
+
+    </script>
+    <!----------------------------------------->
+  
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+
+</body>
+
+</html>

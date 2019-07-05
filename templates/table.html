@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <title> Smart Stock - make deal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo-sm.png') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <!-- This for here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.css') }}">
+
+    <!-- -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+<body >
+  <div class="body-overlay"></div>
+    <!-- Start Loading-Page -->
+    <div class="loader">
+        <div class="loading">
+            <img src="{{ url_for('static', filename='img/logo.png') }}">
+        </div>
+    </div>
+    <!-- End Loading-Page -->
+
+
+<!--Start Navbar-->
+    <div class="navbar">
+        <div class="row">
+
+
+            <div class="col-md-2 col-sm-4 col-xs-3">
+                <div class="nav-left">
+                    <a href="{{ url_for('home') }}" class="logo-nav"><img src="{{ url_for('static', filename='img/logo.png') }}"></a>
+                </div>
+            </div>
+
+            <div class="col-md-10 col-sm-8 col-xs-9">
+                <div class="right-one">
+                    <div id="nav-icon1">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="navy">
+                        <ul class="nav cf" id="ul1">
+                            <li><a href="{{ url_for('home') }}">Home</a></li>
+                            {% if 'mail'  in session %}
+                            <li><a href="{{ url_for('Profile') }}">Profile</a></li>
+                            {% endif %}
+                            <li><a href="{{ url_for('showExpert') }}">Experts</a></li>
+                            <li ><a href="{{ url_for('showComanies') }}">Companies</a></li>
+                        </ul>
+
+                    </div>
+
+                    {% if 'mail' in session %}
+                    <ul class="nav-right">
+                        <li>
+                            <a href="{{ url_for('login') }}">
+                                <span class="pdng">{{ (session['mail'])[:4] }}</span>
+                                <i class="fas fa-power-off"></i>
+                            </a>
+                        </li>
+
+                        <li class="notifi badge-li" title="Notifications">
+                            <span class="badge">4</span>
+                            <a href="#">
+                                <i class="fas fa-bell"></i>
+                            </a>
+                            <ul class="notifi-ul">
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Facebook is <span class="score">158514</span> <i class="fas fa-arrow-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#">Netflix is <span class="score">45543514</span> <i class="fas fa-arrow-top"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+{% endif %}
+
+
+      {% if 'mail' not in session %}
+                    <ul class="nav-right">
+                        <li>
+                            <a href="{{ url_for('login') }}">
+                                <span class="pdng">Login</span>
+                                <i class="fas fa-power-off"></i>
+                            </a>
+                        </li>
+                      </ul>
+      {% endif %}
+           
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <!--End Navbar-->
+
+
+
+
+<div class="container"style="display : block;">
+  <div>
+    <div  >
+      <h2>Bank account</h2>
+      <label id="bank_val_id"> {{balance}}</label>
+    </div>
+
+    <div >
+      <h2>Overall value</h2>
+      <label id="total_val_id"> {{overall_value}}</label>
+    </div>
+
+  </div>
+<br>
+
+  <div class="table-responsive" style="display : block;">
+    <table class="table" id="simulation_table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Company</th>
+          <th scope="col">Bought price</th>
+          <th scope="col">Last Price</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+{%for f in sim_list%}
+<tr>
+      <th scope="row">#</th>
+      <td>{{f['stockname']}}</td>
+      <td>{{f['b_price']}}</td>
+      <td>{{f['l_price']}}</td>
+      <td>{{f['amount']}}</td>
+      <td>{{f['amountvalue']}}</td>
+      <td><input type="checkbox" name="sell" value="{{f['stockname']}} +' '{{f['b_price']}}">
+    </tr>
+{%endfor%}
+      </tbody>
+    </table>
+    <br>
+    <center><button class="btn btn-primary">Sell selected Deals</button></center>
+  </div>
+</div>
+<br>
+<br>
+
+
+
+<!-- Start Footer -->
+    <section class="footer">
+        <div class="container">
+            <div class="footer-content">
+
+
+                <div class="row">
+
+                    <div class="col-xs-6">
+                        <div class="foot1">
+                            <b>smart stock</b>
+                            <p>
+                                &copy;  2019 Smart Stock
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="foot1">
+                            <ul class="links">
+                                <li><a href="terms.html">Privacy & Cookies</a></li>
+                                <li><a href="help.html">Terms of use</a></li>
+                                <li><a href="privacy.html">About us</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- End Footer -->
+
+
+
+
+    <!--Scroll Button-->
+    <div id="scroll-top">
+        <i class="fa fa-angle-up"></i>
+    </div>
+
+
+
+    <!-- Strat End -->
+    <!--===============================
+         SCRIPT
+         ===================================-->
+
+    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <script>
+        new WOW().init();
+
+    </script>
+ 
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+
+
+
+</body>
+</html>

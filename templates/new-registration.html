@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <title> Smart Stock - Sign Up </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo-sm.png') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+
+<body>
+    <!-- Start Loading-Page -->
+    <div class="loader">
+        <div class="loading">
+            <img src="{{ url_for('static', filename='img/logo.png') }}">
+        </div>
+    </div>
+    <!-- End Loading-Page -->
+
+    <div class="bg-vh">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-5 col-xs-12 no-padding">
+                <div class="back-logo">
+                    <div class="in-content">
+                        <h4>Welcome to</h4>
+                        <div class="in-logo">
+                            <img src="{{ url_for('static', filename='img/logo.png') }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-7 col-xs-12 no-padding">
+                <div class=" log-in ">
+                    <div class="in-content">
+
+                        <!-- flash messages -->
+
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+    
+                                {% for message in messages %}
+                                    <div class="alert alert-danger" role="alert">
+                                        {{message}}
+                                    </div>  
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+
+
+                    <!-- end of flash meaasges -->
+
+                        <h4>Smart Stock - Sign Up</h4>
+                        <form class="form form-login" action="{{url_for('signup')}}" method = "post" enctype="multipart/form-data">
+                            
+                            <div class="col-xs-12 no-padding">
+                                    <div class="profile-pic text-center">
+                                        <div class="images-upload-block photo wow slideInUp" style="animation-duration: 2s;transition: 1s">
+                                            <label class="upload-img photo">
+                                                <input type="file" accept="image/*" class="image-uploader" name="pic">
+                                                <i class="fa fa-plus"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            <div class="col-sm-6 col-xs-12 no-padding">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control width-input" placeholder="Type your first name" name="fname">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12 no-padding">
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control width-input" placeholder="Type your last name" name="lname">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 no-padding">
+                                <div class="form-group">
+                                    <label>E-mail</label>
+                                    <input type="email" class="form-control" placeholder="Type your e-mail" name="mail">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 no-padding">
+                                <div class="form-group eye-relative">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" id="password-field" placeholder="Type your password" name="pass">
+                                    <i toggle="#password-field" class="fas fa-eye eye-abslute toggle-password"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xs-12 no-padding">
+                                <div class="form-group">
+                                    <label>Bio-information</label>
+                                    <textarea rows="4" cols="95" id="inbox" class="form-control input-lg" data-fv-field="inbox" placeholder="type..." name="bio"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="col-xs-12 no-padding">
+                            <ul class="checkbox-list">
+                                <li>
+                                    <input type="checkbox" id="test1">
+                                    <label for="test1">
+                                        <span class="span-margin-right">
+                                            Yes I want to receive Smart Stock's emails
+                                        </span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" id="test2">
+                                    <label for="test2">
+                                        <span class="span-margin-right">
+                                            I agree to the
+                                            <a href="#"> Terms.privacy policy </a> and
+                                            <a href="#">Fees </a>
+                                        </span>
+                                    </label>
+                                </li>
+                            </ul>
+                            </div>
+
+                            <div class="col-xs-12 no-padding">
+                            <div class="radio-list">
+                                <label class="rad">User
+                                    <input type="radio" checked="checked" name="radio" value="user" id="user">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="rad">Expert
+                                    <input type="radio" name="radio" value="expert" id="expert">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            </div>
+
+
+                            <div class="col-xs-12 no-padding">
+                                <button type="submit" class="square-an white button-form">Sign Up</button>
+                            <p class=" dont-acount"><span> Do you have an account? </span><a href="{{ url_for('login') }}"> Log in</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Strat End -->
+    <!--===============================
+         SCRIPT
+         ===================================-->
+    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <script>
+        new WOW().init();
+
+    </script>
+    <!--  special for this page -->
+    <script>
+        $(".toggle-password").click(function() {
+
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+
+    </script>
+    <!-- end special for this page -->
+    <!-- -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

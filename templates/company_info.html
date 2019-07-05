@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <title>company info</title>
+</head>
+<body >
+<div class="container">
+
+<div style="height: 300px;text-align: center;"><br><br>
+
+<h1>get json data for each company............ </h1>
+<h1>.....this page is still underconstraction..... </h1>
+</div>
+
+
+
+<div class="row">
+{% for doc in company_info %}
+<div style="margin-top:10px;margin-bottom:10px;width:1000px;height:500px;background-color:bisque;">
+    <p> {{ doc }} </p>
+    
+
+</div>
+<br>
+<br>
+<br><br>
+{% endfor %}
+</div>
+
+
+
+
+</div>
+</body>
